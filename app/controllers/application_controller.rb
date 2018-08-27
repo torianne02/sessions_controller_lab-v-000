@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def hello
-    if !session[:name]
-      redirect_to '/sessions/new'
-    end
+    redirect_to '/sessions/new' if !session[:name]
   end
 end
